@@ -2,25 +2,11 @@ CFLAGS=-Wall
 CC=gcc
 OUTDIR=./compiled
 
-all: wc 1-12 1-8 1-9 linecount longestline
+all: 1-wc 1-12-word-per-line 1-8-count-tab-blank-nl 1-9-replace-blanks \
+1-ex-linecounting 1-longestline 1-19-reverse
 
-wc: 1-wc.o
-	$(CC) -o $(OUTDIR)/wc 1-wc.o
-
-1-12: 1-12-word-per-line.o
-	$(CC) -o $(OUTDIR)/1-12 1-12-word-per-line.o
-
-1-8: 1-8-count-tab-blank-nl.o
-	$(CC) -o $(OUTDIR)/1-8 1-8-count-tab-blank-nl.o
-
-1-9: 1-9-replace-blanks.o
-	$(CC) -o $(OUTDIR)/1-9 1-9-replace-blanks.o
-
-linecount: 1-ex-linecounting.o
-	$(CC) -o $(OUTDIR)/linecount 1-ex-linecounting.o
-
-longestline: 1-longestline.o
-	$(CC) -o $(OUTDIR)/longestline 1-longestline.o
+%: %.c
+	$(CC) -o $(OUTDIR)/$@ $^
 
 clean:
 	rm -f *o

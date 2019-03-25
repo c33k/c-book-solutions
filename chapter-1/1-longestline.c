@@ -7,8 +7,8 @@ short int getLine(char *s, const int lim);
 int main() 
 {
   int longestLength, lineLength;
-  char line[1000];
-  char longest[1000];
+  char line[MAX_LINE];
+  char longest[MAX_LINE];
 
   longestLength = lineLength = 0;
 
